@@ -1,7 +1,4 @@
-class Scene
-  def enter()
-  end
-end
+require './scene.rb'
 
 
 class Engine
@@ -24,8 +21,8 @@ end
 
 class Welcome < Scene
   def enter()
-    puts 'Welcome to the Pet Shop!  We have a few different kinds of pets up for adoption.'
-    puts 'Enter 1 if you\'d like to see Cats or 2 if you\'d like to see Dogs.'
+    puts "Welcome to the Pet Shop!  We have a few different kinds of pets up for adoption."
+    puts "Enter 1 if you\'d like to see Cats or 2 if you\'d like to see Dogs."
     input = $stdin.gets.chomp.to_i
 
     if input == 1
@@ -33,7 +30,7 @@ class Welcome < Scene
     elsif input == 2
       return 'dog'
     else
-      puts 'I don\'t understand.  Please enter 1 for Cats or 2 for Dogs.' 
+      puts "I don\'t understand.  Please enter 1 for Cats or 2 for Dogs."
       return 'welcome'
     end
   end
@@ -41,22 +38,16 @@ end
 
 class Cat < Scene
   def enter()
-    puts 'We have 2 types of cats for you to view.  Please select 1 for Maine Coon, or 2 for Tuxedo Cat.  
-    If you wish to return to the main room of the pet store, type return, and to exit the game, type exit.'
+    puts "We have 2 types of cats for you to view.  Please select 1 for Maine Coon, or 2 for Tuxedo Cat."
     print "> "
-    action = $stdin.gets.chomp
+    action = $stdin.gets.chomp.to_i
 
-    if action == 1 || "1"
+    if action == 1
       return 'maine_coon'
-    elsif action == 2 || "2"
+    elsif action == 2
       return 'tuxedo_cat'
-    elsif action == "return"
-      return 'welcome'
-    elsif action == 'finished'
-      return 'finished'
     else
-      puts 'I don\'t understand.  Please enter 1 for Maine Coon or 2 for Tuxedo Cat.'
-      puts 'You can also type return to return to the main Pet Shop or exit to exit.' 
+      puts "I don\'t understand.  Please enter 1 for Maine Coon or 2 for Tuxedo Cat."
       return 'cat'
     end
   end
@@ -64,22 +55,22 @@ end
 
 class Dog < Scene
   def enter()
-    puts 'We have 2 types of dogs for you to view.  Please select 1 for German Shepherd, or 2 for a Mutt.  
-    If you wish to return to the main room of the pet store, type return, and to exit the game, type exit.'
+    puts "We have 2 types of dogs for you to view.  Please select 1 for German Shepherd, or 2 for a Mutt." 
+    puts "\n"     
+    puts "If you wish to return to the main room of the pet store, type return, and to exit the game, type exit."
     print "> "
     action = $stdin.gets.chomp
 
-    if action == 1 || "1"
+    if action == 1
       return 'german_shepherd'
-    elsif action == 2 || "2"
+    elsif action == 2
       return 'mutt'
-    elsif action == "return"
+    elsif action == 'return'
       return 'welcome'
     elsif action == 'exit'
       return 'finished'
     else
-      puts 'I don\'t understand.  Please enter 1 for German Shepherd or 2 for Mutt.'
-      puts 'You can also type return to return to the main Pet Shop or exit to exit.' 
+      puts "I don\'t understand.  Please enter 1 for German Shepherd or 2 for Mutt."
       return 'dog'
     end
   end
@@ -87,23 +78,24 @@ end
 
 class MaineCoon < Scene
   def enter()
-    puts 'Check out this beautiful Maine Coon, weighing in at 13 lbs!'
-    puts 'Would you like to adopt her? y/n'
-    print '> '
+    puts "Check out this beautiful Maine Coon, weighing in at 13 lbs!"
+    puts "\n"
+    puts "Would you like to adopt her? y/n"
+    print "> "
     action = $stdin.gets.chomp
     
-    if action == 'y' || 'Y'
+    if action == 'y'
       return 'congrats'
-    elsif action == 'n' || 'N'
-      puts 'That\'s too bad.  Want to check out the other cats? y/n'
+    elsif action == 'n'
+      puts "That\'s too bad.  Want to check out the other cats? y/n"
       next_action = $stdin.gets.chomp
-      if next_action == 'y' || 'Y'
+      if next_action == 'y'
         return 'cats'
-      elsif next_action == 'n' || 'N'
+      elsif next_action == 'n'
         return 'finished'
       end
     else
-      'I don\'t understand!'
+      puts "I don\'t understand!"
       return 'welcome'
     end
   end
@@ -111,23 +103,24 @@ end
 
 class TuxedoCat < Scene
   def enter()
-    puts 'Check out this beautiful Tuxedo Cat, weighing in at 10 lbs!'
-    puts 'Would you like to adopt him? y/n'
-    print '> '
+    puts "Check out this beautiful Tuxedo Cat, weighing in at 10 lbs!"
+    puts "\n"
+    puts "Would you like to adopt him? y/n"
+    print "> "
     action = $stdin.gets.chomp
     
-    if action == 'y' || 'Y'
+    if action == 'y'
       return 'congrats'
-    elsif action == 'n' || 'N'
-      puts 'That\'s too bad.  Want to check out the other cats? y/n'
+    elsif action == 'n'
+      puts "That\'s too bad.  Want to check out the other cats? y/n"
       next_action = $stdin.gets.chomp
-      if next_action == 'y' || 'Y'
+      if next_action == 'y'
         return 'cats'
-      elsif next_action == 'n' || 'N'
+      elsif next_action == 'n'
         return 'finished'
       end
     else
-      'I don\'t understand!'
+      puts "I don\'t understand!"
       return 'welcome'
     end
   end
@@ -135,23 +128,23 @@ end
 
 class GermanShepherd < Scene
   def enter()
-    puts 'Check out this beautiful German Shepherd, weighing in at 65 lbs!'
-    puts 'Would you like to adopt him? y/n'
-    print '> '
+    puts "Check out this beautiful German Shepherd, weighing in at 65 lbs!"
+    puts "Would you like to adopt him? y/n"
+    print "> "
     action = $stdin.gets.chomp
     
-    if action == 'y' || 'Y'
+    if action == 'y'
       return 'congrats'
-    elsif action == 'n' || 'N'
-      puts 'That\'s too bad.  Want to check out the other dogs? y/n'
+    elsif action == 'n'
+      puts "That\'s too bad.  Want to check out the other dogs? y/n"
       next_action = $stdin.gets.chomp
-      if next_action == 'y' || 'Y'
+      if next_action == 'y'
         return 'dogs'
-      elsif next_action == 'n' || 'N'
+      elsif next_action == 'n'
         return 'finished'
       end
     else
-      'I don\'t understand!'
+      puts "I don\'t understand!"
       return 'welcome'
     end
   end
@@ -159,23 +152,23 @@ end
 
 class Mutt < Scene
   def enter()
-    puts 'Check out this beautiful Mutt, weighing in at 42 lbs!'
-    puts 'Would you like to adopt her? y/n'
-    print '> '
+    puts "Check out this beautiful Mutt, weighing in at 42 lbs!"
+    puts "Would you like to adopt her? y/n"
+    print "> "
     action = $stdin.gets.chomp
     
-    if action == 'y' || 'Y'
+    if action == 'y'
       return 'congrats'
-    elsif action == 'n' || 'N'
-      puts 'That\'s too bad.  Want to check out the other dogs? y/n'
+    elsif action == 'n'
+      puts "That\'s too bad.  Want to check out the other dogs? y/n"
       next_action = $stdin.gets.chomp
-      if next_action == 'y' || 'Y'
+      if next_action == 'y'
         return 'dogs'
-      elsif next_action == 'n' || 'N'
+      elsif next_action == 'n'
         return 'finished'
       end
     else
-      'I don\'t understand!'
+      puts "I don\'t understand!"
       return 'welcome'
     end
   end
@@ -183,14 +176,14 @@ end
 
 class Congratulations < Scene
   def enter()
-    puts 'Congrats, you\'ve adopted a lovely pet!'
+    puts "Congrats, you\'ve adopted a lovely pet!"
     return 'finished'
   end
 end
 
 class Finished < Scene
   def enter()
-    puts 'Have a nice day!'
+    puts "Have a nice day!"
     exit(1)
   end
 end

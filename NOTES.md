@@ -20,3 +20,9 @@ Scene (9 total)
   *  Don't adopt -> return to PS or exit
   * 3) congrats scene, then exit
   * 4) exit
+
+
+  3/23/19
+  * It seems like my logic for the interface is not working, I will need to investigate when I have internet access to check this error: 
+  'warning: string literal in condition.' 
+  * It probably has something to do with me not properly escaping my punctuation in my output from the machine.
